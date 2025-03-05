@@ -1,6 +1,6 @@
 #[inline(never)]
 pub fn do_work_heap_alloc(alloc: usize, iters: u8) -> u8 {
-    let mut buf = Vec::with_capacity(alloc);
+    let mut buf = vec![0u8; alloc];
     for i in 0..iters {
         for e in buf.iter_mut() {
             *e += i;

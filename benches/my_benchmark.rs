@@ -1,3 +1,10 @@
+#[cfg(not(target_env = "msvc"))]
+use tikv_jemallocator::Jemalloc;
+
+#[cfg(not(target_env = "msvc"))]
+#[global_allocator]
+static GLOBAL: Jemalloc = Jemalloc;
+
 use criterion::{black_box, criterion_group, criterion_main, Criterion};
 use heapstack::{do_work_heap_alloc, do_work_stack_alloc_100, do_work_stack_alloc_1000};
 
