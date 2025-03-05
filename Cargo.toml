@@ -11,3 +11,8 @@ tikv-jemallocator = "0.6.0"
 [[bench]]
 name = "my_benchmark"
 harness = false
+
+[profile.bench]
+codegen-units = 1
+lto="fat"
+
